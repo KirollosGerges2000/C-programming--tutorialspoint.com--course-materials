@@ -1,0 +1,26 @@
+C functions summary
+
+Author:Kirollos Gerges
+
+C functions summary
+Types:
+
+1) function No return ,parameters  "void Function_name (void)
+uses: several statments  execuation that not  permit for developer to change in its values or implement it for reading.
+"No read or Write"
+
+2)function No return , has parameter "void Function_name (int x)"
+uses: permits for developer to write values or its address on it , but not read.
+
+3)function has return , No parameter " int Function_name (void)"
+uses: permits for developer to read it by returning value, but not Write values on it .
+
+4)function has return , parameter "int Function_name (int x)"
+uses: permits for developer to write values or its address on it and also read it by returning value .
+
+
+In 2, 4 types of this function
+1)Call by value  "void Function_name (int x)"
+2) call by refrence "void Function_name (int *x)"_________{    Function_name (&x)  }
+
+
