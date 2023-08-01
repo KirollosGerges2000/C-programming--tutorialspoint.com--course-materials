@@ -4,6 +4,7 @@ Author:Kirollos Gerges
 
 */
 #include <stdio.h> 
+#include <time.h>
 //prototypes
 void intro_pointers(void);
 void normal_pointers (void);
@@ -11,6 +12,12 @@ void NULL_IN_POINTERS(void);
 void increament_pointer(void);
   void decrement_pointer(void);
   void Pointers_comp(void);
+  void array_of_pointer(void);
+    void pointer_to_pointer(void);
+	  void getSeconds(unsigned long *par);
+	  	 void main_of_getsecond(void);
+		 int *getRandom( );
+		 void main_ptr_getrandom(void);
 // Global Values
  const int MAX = 3;
 int main ()
@@ -29,6 +36,14 @@ printf("decrement Pointer\n");
 decrement_pointer();  // use ptr--
 printf("camporsion Pointer\n");
 Pointers_comp();  // use while to campore between arrays elements and its location to terminates loop
+printf("Array of pointer\n");
+array_of_pointer();
+printf("Pointer to pointer\n");
+   pointer_to_pointer(); // Address to Address
+   printf("pointer to function\n");
+   	 main_of_getsecond();
+	 printf("return pointer from function\n");
+	 main_ptr_getrandom();
   return 0; 
   }
   
@@ -111,3 +126,82 @@ Pointers_comp();  // use while to campore between arrays elements and its locati
 	  printf("Value of var[%d] = %d\n", i, *ptr ); /* point to the previous location */ ptr++;
   }
   }
+  
+  // array of pointers function
+  void array_of_pointer(void)
+  
+  {
+  	
+	int var[] = {10, 100, 200}; 
+	int i, *ptr[MAX];
+	 for ( i = 0; i < MAX; i++)
+	  { 
+	  ptr[i] = &var[i]; /* assign the address of integer. */
+	   } 
+	   for ( i = 0; i < MAX; i++)
+	    { printf("Value of var[%d] = %d\n", i, *ptr[i] ); 
+		}
+  }
+  
+  
+  //ponter to pointer function
+  void pointer_to_pointer(void)
+  
+  {
+  	
+	
+	int var; 
+	int *ptr;
+	 int **pptr; 
+	 var = 3000;
+	 
+	 /* take the address of var */
+	  ptr = &var; /* take the address of ptr using address of operator & */ 
+	  pptr = &ptr; /* take the value using pptr */ 
+	  printf("Value of var = %d\n", var ); 
+	  printf("Value available at *ptr = %d\n", *ptr ); 
+	  printf("Value available at **pptr = %d\n", **pptr);
+  }
+  
+  //get second function
+  void getSeconds(unsigned long *par)
+   { 
+   /* get the current number of seconds */
+    *par = time( NULL );
+	 }
+	 
+	  // main of get second function
+	 void main_of_getsecond(void)
+	 {
+	 	unsigned long sec; 
+		getSeconds( &sec ); 
+		/* print the actual value */ 
+		printf("Number of seconds: %ld\n", sec );
+	 }
+	 
+	 
+	 /* function to generate and retrun random numbers. */ 
+	 int *getRandom( )
+	  { 
+	  static int r[10]; 
+	  int i; /* set the seed */ 
+	  srand( (unsigned)time( NULL ) ); 
+	  for ( i = 0; i < 10; ++i) 
+	  {
+	   r[i] = rand();
+	    printf("%d\n", r[i] ); 
+		} 
+		return r; 
+		}
+		//main of  function to generate and retrun random numbers.
+		void main_ptr_getrandom(void)
+		{
+			/* a pointer to an int */ 
+			int *p; 
+			int i; 
+			p = getRandom(); 
+			for ( i = 0; i < 10; i++ )
+			 {
+			 printf("*(p + [%d]) : %d\n", i, *(p + i) );
+			  }
+		}
