@@ -1,0 +1,8 @@
+Difference between Union and struct
+1) Union has reserved its datatypes in the same memory location
+ ,struct has not reserved its datatypes in the same memory location
+  that may slow the response of Application in contrast of Union.
+  
+2) Union reserve it single data type in same memory location 
+that may give me garbage value 
+if I reserved diffrent type in contrast of struct.
